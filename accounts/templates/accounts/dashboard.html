@@ -1,13 +1,90 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Home Page</title>
-  </head>
-  <body>
-    <div>
-      <h1>Home Page</h1>
+{% extends 'accounts/main.html' %} 
+
+{% block content %}
+
+<div class="jumbotron m-0 mb-3 py-4 px-2">
+  <div class="row">
+    <div class="col-md">
+      <div class="card text-center text-dark bg-secondary" id="total-orders">
+        <div class="card-header bg-info">
+          <h5 class="card-title">Total Orders</h5>
+        </div>
+        <div class="card-body">
+          <h3 class="card-title text-light">18</h3>
+        </div>
+      </div>
     </div>
-  </body>
-</html>
+    <div class="col-md">
+      <div
+        class="card text-center text-dark bg-secondary"
+        id="delivered-orders"
+      >
+        <div class="card-header bg-success">
+          <h5 class="card-title">Delivered Orders</h5>
+        </div>
+        <div class="card-body">
+          <h3 class="card-title text-light">18</h3>
+        </div>
+      </div>
+    </div>
+    <div class="col-md">
+      <div class="card text-center text-dark bg-secondary" id="pending-orders">
+        <div class="card-header bg-warning">
+          <h5 class="card-title">Pending Orders</h5>
+        </div>
+        <div class="card-body">
+          <h3 class="card-title text-light">18</h3>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-5 pr-1">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">CUSTOMERS:</h5>
+        <h6 class="card-subtitle mb-2 text-muted text-secondary">
+          A list with all the customers and a summary of their orders.
+        </h6>
+        <a href="" class="btn btn-secondary btn-sm btn-block"
+          >Create Customer</a
+        >
+        <table class="table table-sm table-hover mt-1">
+          <thead>
+            <tr>
+              <th scope="col">Customer</th>
+              <th scope="col">Orders</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-7 pl-1">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">LAST 5 ORDERS:</h5>
+        <h6 class="card-subtitle mb-2 text-muted text-secondary">
+          A list with the last five orders which delivered.
+        </h6>
+        <a href="" class="btn btn-secondary btn-sm btn-block">Create Order</a>
+        <table class="table table-sm table-hover mt-1">
+          <thead>
+            <tr>
+              <th scope="col">Product</th>
+              <th scope="col">Date Ordered</th>
+              <th scope="col">Status</th>
+              <th scope="col">Update</th>
+              <th scope="col">Remove</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock %}
