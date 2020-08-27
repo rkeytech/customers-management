@@ -22,12 +22,13 @@
   </head>
 
   <body>
+    {% include 'accounts/navbar.html' %}
     <div class="container">
-      {% include 'accounts/navbar.html' %}
       
-      {% block content %} 
-      
-      {% endblock %}
+    {% block content %} 
+    
+    {% endblock %}
+  
     </div>
 
     <!-- SCRIPTS -->

@@ -21,18 +21,18 @@
   <div class="col-md">
     <div class="card">
       <div class="card-header">
-        <h5 class="card-title">Contact Information</h5>
+        <h5 class="card-title">Customer Information</h5>
       </div>
       <div class="card-body">
-        <ul class="list-group list-group-flush text-light text-center">
-          <li class="list-group-item">
-            Email: <span class="text-white">test@test.com</span>
+        <ul class="list-group list-group-flush text-light">
+          <li class="list-group-item pl-5">
+            Name: <span class="text-white">{{ customer.name }}</span>
           </li>
-          <li class="list-group-item">
-            Phone: <span class="text-white">2610-222-322</span>
+          <li class="list-group-item pl-5">
+            Email: <span class="text-white">{{ customer.email }}</span>
           </li>
-          <li class="list-group-item">
-            Address: <span class="text-white">Kentro, Patras</span>
+          <li class="list-group-item pl-5">
+            Phone: <span class="text-white">{{ customer.phone }}</span>
           </li>
         </ul>
       </div>
@@ -44,7 +44,7 @@
         <h5 class="card-title">Total Orders</h5>
       </div>
       <div class="card-body text-center pt-5 mt-2">
-        <h1>12</h1>
+        <h1>{{ total_orders }}</h1>
       </div>
     </div>
   </div>
@@ -71,11 +71,22 @@
               <th scope="col">Category</th>
               <th scope="col">Date Ordered</th>
               <th scope="col">Status</th>
-              <th scope="col">Update</th>
-              <th scope="col">Remove</th>
+              <th scope="col"></th>
+              <th scope="col"></th>
             </tr>
           </thead>
-          <tbody></tbody>
+          <tbody>
+          {% for o in orders %}
+            <tr>
+              <th scope="row">{{ o.product.name }}</th>
+              <td>{{ o.product.category }}</td>
+              <td>{{ o.date_created }}</td>
+              <td>{{ o.status }}</td>
+              <td><a href="" class="btn btn-sm btn-block btn-info">Update</a></td>
+              <td><a href="" class="btn btn-sm btn-block btn-danger">Delete</a></td>
+            </tr>
+          {% endfor %}
+          </tbody>
         </table>
       </div>
     </div>
