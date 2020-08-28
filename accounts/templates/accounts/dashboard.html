@@ -1,5 +1,6 @@
+<!-- prettier-ignore -->
 {% extends 'accounts/main.html' %} 
-{% load static %}
+{% load static %} 
 
 {% block content %}
 <div class="jumbotron m-0 mb-3 py-4 px-2">
@@ -59,13 +60,17 @@
             </tr>
           </thead>
           <tbody>
-          {% for c in customers %}
+            {% for c, o in c_orders.values %}
             <tr>
-              <td class="text-center"><a class="btn btn-sm btn-warning text-secondary" href="{% url 'customer' c.id %}">View</a></th>
+              <td class="text-center">
+                <a href="{% url 'customer' c.id %}"
+                  ><span class="badge badge-primary"> View </span></a
+                >
+              </td>
               <th scope="row">{{ c.name }}</th>
-              <td>{{ c.id }}</td>
+              <td>{{ o }}</td>
             </tr>
-          {% endfor %}
+            {% endfor %}
           </tbody>
         </table>
       </div>
@@ -78,7 +83,11 @@
         <h6 class="card-subtitle mb-2 text-muted text-secondary">
           A list with the last five orders which delivered.
         </h6>
-        <a href="" class="btn btn-secondary btn-sm btn-block">Create Order</a>
+        <a
+          href="{% url 'create_order' %}"
+          class="btn btn-secondary btn-sm btn-block"
+          >Create Order</a
+        >
         <table class="table table-sm table-hover mt-1">
           <thead>
             <tr>
@@ -90,15 +99,29 @@
             </tr>
           </thead>
           <tbody>
-          {% for o in orders %}
+            {% for o in orders %}
             <tr>
               <th scope="row">{{ o.product.name }}</th>
               <td>{{ o.date_created }}</td>
               <td>{{ o.status }}</td>
-              <td><a class="btn btn-sm btn-block btn-info" href="">Update</a></td>
-              <td><a class="btn btn-sm btn-block btn-danger" href="">Delete</a></td>
+              <td>
+                <a
+                  class="btn btn-sm btn-block btn-info"
+                  href="{% url 'update_order' o.id %}"
+                >
+                  Update
+                </a>
+              </td>
+              <td>
+                <a
+                  class="btn btn-sm btn-block btn-danger"
+                  href="{% url 'delete_order' o.id %}"
+                >
+                  Delete
+                </a>
+              </td>
             </tr>
-          {% endfor %}
+            {% endfor %}
           </tbody>
         </table>
       </div>

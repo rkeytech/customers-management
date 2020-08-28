@@ -1,3 +1,4 @@
+<!-- prettier-ignore -->
 {% extends 'accounts/main.html' %}
 
 {% block content %}
@@ -76,16 +77,28 @@
             </tr>
           </thead>
           <tbody>
-          {% for o in orders %}
+            {% for o in orders %}
             <tr>
               <th scope="row">{{ o.product.name }}</th>
               <td>{{ o.product.category }}</td>
               <td>{{ o.date_created }}</td>
               <td>{{ o.status }}</td>
-              <td><a href="" class="btn btn-sm btn-block btn-info">Update</a></td>
-              <td><a href="" class="btn btn-sm btn-block btn-danger">Delete</a></td>
+              <td>
+                <a
+                  href="{% url 'update_order' o.id %}"
+                  class="btn btn-sm btn-block btn-info"
+                  >Update</a
+                >
+              </td>
+              <td>
+                <a
+                  href="{% url 'delete_order' o.id %}"
+                  class="btn btn-sm btn-block btn-danger"
+                  >Delete</a
+                >
+              </td>
             </tr>
-          {% endfor %}
+            {% endfor %}
           </tbody>
         </table>
       </div>

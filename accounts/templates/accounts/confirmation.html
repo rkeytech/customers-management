@@ -1,0 +1,28 @@
+<!-- prettier-ignore -->
+{% extends 'accounts/main.html' %}
+{% load static %}
+
+{% block content %}
+
+<div class="jumbotron mt-2">
+  <h2 class="display-4">{{header}}</h2>
+  <p class="lead">{{msg}}</p>
+  <hr class="my-4" />
+  <form action="" method="POST">
+    {% csrf_token %}
+    <input
+      class="btn {{btn_class_confirm}}"
+      type="submit"
+      name="Confirm"
+      value="Confirm"
+    />
+    <a
+      class="btn {{btn_class_cancel}}"
+      href="{% url 'dashboard' %}"
+      role="button"
+      >Cancel</a
+    >
+  </form>
+</div>
+
+{%endblock content %}
