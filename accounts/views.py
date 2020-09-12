@@ -1,9 +1,10 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
+from django.contrib.auth.decorators import login_required
 from .models import Customer, Product, Order
 from .forms import OrderForm, CreateUserForm
-from django.contrib.auth.decorators import login_required
+from .filters import OrderFilter
 
 
 def registerUser(request):
@@ -86,10 +87,14 @@ def customer(request, pk):
     orders = customer.order_set.all()
     total_orders = orders.count()
 
+    my_filter = OrderFilter(request.GET, queryset=orders)
+    orders = my_filter.qs
+
     context = {
         'customer': customer,
         'orders': orders,
-        'total_orders': total_orders
+        'total_orders': total_orders,
+        'my_filter': my_filter
     }
     return render(request, 'accounts/customer.html', context)
 
