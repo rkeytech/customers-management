@@ -6,8 +6,14 @@
 <form class="mt-1" action="" method="POST">
   <div class="form-group">
     <!-- prettier-ignore -->
-    {% csrf_token %} 
-    {{ form }}
+    {% csrf_token %}
+    {% for field in form %}
+    <div class="form-group">
+      <!-- prettier-ignore -->
+      {{field.label}}
+      {{field}}
+    </div>
+    {% endfor %}
     <button type="submit" class="btn btn-primary mt-2">Submit</button>
   </div>
 </form>

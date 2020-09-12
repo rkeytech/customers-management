@@ -1,8 +1,10 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary sticky-top">
   <span class="logo text-danger mr-2">
     <i class="fa fa-angellist w-100"></i>
   </span>
-  <a class="navbar-brand text-danger" href="{% url 'dashboard' %}" id="brand">Customers DB</a>
+  <a class="navbar-brand text-danger" href="{% url 'dashboard' %}" id="brand"
+    >Customers DB</a
+  >
   <button
     class="navbar-toggler"
     type="button"
@@ -24,4 +26,8 @@
       </li>
     </ul>
   </div>
+  <span class="navbar-text"> Hello, {{request.user|capfirst}} </span>
+  <span>
+    <a href="{% url 'logout' %}" class="nav-link navbar-text">Logout</a>
+  </span>
 </nav>

@@ -3,10 +3,13 @@
 {% load static %} 
 
 {% block content %}
-<div class="jumbotron m-0 mb-3 py-4 px-2">
+<div class="jumbotron rounded-0 m-0 mb-3 py-4 px-2">
   <div class="row">
     <div class="col-md">
-      <div class="card text-center text-dark bg-secondary" id="total-orders">
+      <div
+        class="card text-center text-dark bg-secondary shadow-sm"
+        id="total-orders"
+      >
         <div class="card-header bg-info">
           <h5 class="card-title">Total Orders</h5>
         </div>
@@ -17,7 +20,7 @@
     </div>
     <div class="col-md">
       <div
-        class="card text-center text-dark bg-secondary"
+        class="card text-center text-dark bg-secondary shadow-sm"
         id="delivered-orders"
       >
         <div class="card-header bg-success">
@@ -29,7 +32,10 @@
       </div>
     </div>
     <div class="col-md">
-      <div class="card text-center text-dark bg-secondary" id="pending-orders">
+      <div
+        class="card text-center text-dark bg-secondary shadow-sm"
+        id="pending-orders"
+      >
         <div class="card-header bg-warning">
           <h5 class="card-title">Pending Orders</h5>
         </div>
@@ -42,7 +48,7 @@
 </div>
 <div class="row">
   <div class="col-md-5 pr-1">
-    <div class="card">
+    <div class="card shadow-sm">
       <div class="card-body">
         <h5 class="card-title">CUSTOMERS:</h5>
         <h6 class="card-subtitle mb-2 text-muted text-secondary">
@@ -77,18 +83,13 @@
     </div>
   </div>
   <div class="col-md-7 pl-1">
-    <div class="card">
+    <div class="card shadow-sm">
       <div class="card-body">
         <h5 class="card-title">LAST 5 ORDERS:</h5>
-        <h6 class="card-subtitle mb-2 text-muted text-secondary">
+        <h6 class="card-subtitle pb-1 text-muted text-secondary">
           A list with the last five orders which delivered.
         </h6>
-        <a
-          href="{% url 'create_order' %}"
-          class="btn btn-secondary btn-sm btn-block"
-          >Create Order</a
-        >
-        <table class="table table-sm table-hover mt-1">
+        <table class="table table-sm table-hover">
           <thead>
             <tr>
               <th scope="col">Product</th>

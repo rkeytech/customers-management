@@ -1,7 +1,15 @@
+* {
+  margin: 0;
+}
+
 span.logo {
   font-size: 2em;
 }
 
 a#brand {
   font-size: 25px;
+}
+
+.passwd > input {
+  width: 100%;
 }
