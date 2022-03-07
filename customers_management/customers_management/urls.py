@@ -1,7 +1,7 @@
-"""crm URL Configuration
+"""customers_management URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
-    https://docs.djangoproject.com/en/3.1/topics/http/urls/
+    https://docs.djangoproject.com/en/4.0/topics/http/urls/
 Examples:
 Function views
     1. Add an import:  from my_app import views
@@ -17,6 +17,6 @@ from django.contrib import admin
 from django.urls import path, include
 
 urlpatterns = [
+    # TODO: Import the urls from profiles, products, system with include
     path('admin/', admin.site.urls),
-    path('', include('accounts.urls')),
 ]
